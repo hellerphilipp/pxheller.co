@@ -32,7 +32,7 @@
 
             <h2 id="section-idea">Initial idea</h2>
             <p>
-                The initial idea for DocumentExtractor appeared to me after randomly stumbling upon the capabilities of<a href="https://tika.apache.org/">Apache Tika</a>, an open toolkit to extract text from various kinds of documents. "Wouldn't it be great if we could just feed that text into an LLM and get exactly the data we need, regardless of input document format?", I thought to myself. The idea for "Doc2API" was born, a service that could offer user-defined APIs to query a set of user-provided documents. The user provides a schema and gets a file-upload location plus an URL in return where a REST-API is available to interact with the data.
+                The initial idea for DocumentExtractor appeared to me after randomly stumbling upon the capabilities of <a href="https://tika.apache.org/">Apache Tika</a>, an open toolkit to extract text from various kinds of documents. "Wouldn't it be great if we could just feed that text into an LLM and get exactly the data we need, regardless of input document format?", I thought to myself. The idea for "Doc2API" was born, a service that could offer user-defined APIs to query a set of user-provided documents. The user provides a schema and gets a file-upload location plus an URL in return where a REST-API is available to interact with the data.
             </p>
             <p>
                 After giving it some further thought, this quickly evolved into a fully-blown workflow automation platform. The user would define extractions, and the platform could then be used to automatically trigger workflows (such as calling other APIs, or posting data into databases or ERP systems) based on pre-defined rules.
@@ -41,7 +41,7 @@
             </p>
             <h2 id="section-poc">The POC</h2>
             <p>
-                To validate that my imagined approach of feeding Tika-HTML-output into an LLM to extract structured data would work, I set up a small proof of concept in Jupyter notebook. I spun up a quick docker container based on the initial image (I like having my dev environments portable and separate from my main workstation) and gathered some test data online by collecting documents I've saved on my disk, mostly scans (which later turned out to be a mistake). I spun up a Tika instance in another container, registered for an OpenAI Platform account (I was fine with the data from my test docs being seen by OpenAI) and gave it a go. Besides some troubles getting started with Python, I got everything working within a couple of hours -- at least as a POC.
+                To validate that my imagined approach of feeding Tika-HTML-output into an LLM to extract structured data would work, I set up a small proof of concept in Jupyter notebook. I spun up a quick docker container based on the initial image (I like having my dev environments portable and separate from my main workstation) and gathered some test data online by collecting documents I've saved on my disk, mostly scans (which later turned out to be a mistake). I spun up a Tika instance in another container, registered for an OpenAI Platform account (I was fine with the data from my test docs being seen by OpenAI) and gave it a go. Besides some troubles getting started with Python, I got everything working within a couple of hours – at least as a POC.
             </p>
             <h2 id="section-product">Turning it into a product</h2>
             <h3 id="subsection-arch">Extraction & Data Architecture</h2>
