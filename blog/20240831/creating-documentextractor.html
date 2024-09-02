@@ -14,36 +14,49 @@
     <div class="container">
         <header>
             <h1>Creating DocumentExtractor</h1>
-            <p class="subtitle">After countless of ideas started on GitHub, documented in Notion or written done on post-its, it was time to start working on something with the goal to get it to launch. Since May 2024, I've now been working on DocumentExtractor.ai, a service I envisioned could turn any document into structured data.</p>
+            <p class="subtitle">On the journey of beginning my first 'made-to-launch' side project and the thinghs I've learned.</p>
         </header>
 
         <img src="assets/creating-documentextractor-intro.jpg" alt="Header Image" class="header-image">
         <p class="caption">A lot of valuable information is hidden in unstructured documents (GPT-4o)</p>
 
         <article>
-            <p>Your introduction paragraph goes here. It should give a brief overview of what the article is about and what the reader can expect to learn.</p>
+            <p>After countless of ideas started on GitHub, documented in Notion or written done on post-its, it was time to start working on something with the goal to get it to launch. Since May 2024, I've now been working on DocumentExtractor.ai, a service I envisioned could turn any document into structured data.</p>
 
-            <h2 id="section1">First Main Section</h2>
-            <p>Content for your first main section. You can include various paragraphs, lists, or other elements here.</p>
+            <h2 id="section-motivation">Motivation</h2>
+            <p>
+                I've been drawing up ideas and building software my whole childhood (working on different projects, mostly in C++, PHP, Java, and Swift). As life caught up and I got busy with coursework and later with my full-time-job as a consultant, I dropped the art mostly to focus on the necessities of life. My last "valuable" piece of software that actually launched (a small event planning and ticketing platform) was finished over 5 years ago (in 2019) and my programming skills became more rusty by the day.
+            </p><p>
+                As I also got quite curious about AI in the recent months, and noticed how useful Python could be at work, I decided it was time for a new challenge and getting back into programming would be a good way to do this. What better thing to work on than AI nowadays anyway, right?
+            </p>
 
-            <h3 id="subsection1">A Subsection</h3>
-            <p>More detailed content about a specific topic within the main section.</p>
+            <h2 id="section-idea">Initial idea</h2>
+            <p>
+                The initial idea for DocumentExtractor appeared to me after randomly stumbling upon the capabilities of<a href="https://tika.apache.org/">Apache Tika</a>, an open toolkit to extract text from various kinds of documents. "Wouldn't it be great if we could just feed that text into an LLM and get exactly the data we need, regardless of input document format?", I thought to myself. The idea for "Doc2API" was born, a service that could offer user-defined APIs to query a set of user-provided documents. The user provides a schema and gets a file-upload location plus an URL in return where a REST-API is available to interact with the data.
+            </p>
+            <p>
+                After giving it some further thought, this quickly evolved into a fully-blown workflow automation platform. The user would define extractions, and the platform could then be used to automatically trigger workflows (such as calling other APIs, or posting data into databases or ERP systems) based on pre-defined rules.
+            </p><p>
+                Before thinking about getting to point Z, though, I first needed to start at A and get the processing right.
+            </p>
+            <h2 id="section-poc">The POC</h2>
+            <p>
+                To validate that my imagined approach of feeding Tika-HTML-output into an LLM to extract structured data would work, I set up a small proof of concept in Jupyter notebook. I spun up a quick docker container based on the initial image (I like having my dev environments portable and separate from my main workstation) and gathered some test data online by collecting documents I've saved on my disk, mostly scans (which later turned out to be a mistake). I spun up a Tika instance in another container, registered for an OpenAI Platform account (I was fine with the data from my test docs being seen by OpenAI) and gave it a go. Besides some troubles getting started with Python, I got everything working within a couple of hours -- at least as a POC.
+            </p>
+            <h2 id="section-product">Turning it into a product</h2>
+            <h3 id="subsection-arch">Extraction & Data Architecture</h2>
+                <!-- <p>You can link to sections or figures like this: <a href="#section1">First Section</a> or <a href="#figure1">Figure 1</a>.</p>
+    
+                <figure id="figure1">
+                    <img src="/api/placeholder/600/400" alt="Figure 1">
+                    <figcaption>Figure 1: Description or caption for this image</figcaption>
+                </figure> -->
+            <p><i>more to follow...</i></p>
+            <h3 id="subsection-arch">What's essential? MVP definition</h2>
+                <!-- Decided I didn't want to spend too much time building features noone would use and instead approach it in pragmatic fashion..minimal featureset, who I have in mind as target user, etc. -> differentiate private and business, etc -->
 
-            <figure id="figure1">
-                <img src="/api/placeholder/600/400" alt="Figure 1">
-                <figcaption>Figure 1: Description or caption for this image</figcaption>
-            </figure>
-
-            <h2 id="section2">Second Main Section</h2>
-            <p>Content for your second main section. This could be a different aspect of your topic or a continuation of the previous section.</p>
-
-            <p>You can link to sections or figures like this: <a href="#section1">First Section</a> or <a href="#figure1">Figure 1</a>.</p>
-
-            <h3 id="subsection2">Another Subsection</h3>
-            <p>More content here. Remember to break up your text into manageable paragraphs for easier reading.</p>
-
-            <h2 id="conclusion">Conclusion</h2>
-            <p>Summarize the main points of your article and provide any final thoughts or call to action for your readers.</p>
+            <h3 id="subsection-challenges">Running into challenges</h2>
+            <h2 id="conclusion">What's next?</h2>
         </article>
 
         <div class="contact-section">
